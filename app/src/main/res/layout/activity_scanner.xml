@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.reffy.shannon.reffy.scanner">
+
+    <TextView
+        android:id="@+id/instructions"
+        android:layout_width="365dp"
+        android:layout_height="83dp"
+        android:layout_marginTop="16dp"
+        android:text="To search for a book enter the ISBN below and click search or click scan to scan the barcode"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="6dp" />
+
+    <EditText
+        android:id="@+id/ISBNinput"
+        android:layout_width="376dp"
+        android:layout_height="45dp"
+        android:text="Enter ISBN"
+        app:layout_constraintTop_toBottomOf="@+id/instructions"
+        tools:layout_editor_absoluteX="4dp" />
+
+    <Button
+        android:id="@+id/btnSearch"
+        android:layout_width="132dp"
+        android:layout_height="57dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/colorAccent"
+        android:onClick="search"
+        android:text="Search"
+        android:textAlignment="center"
+        android:textColor="#ffffff"
+        app:layout_constraintBottom_toTopOf="@+id/scan_format"
+        app:layout_constraintEnd_toStartOf="@+id/btnScan"
+        app:layout_constraintHorizontal_bias="0.825"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ISBNinput"
+        app:layout_constraintVertical_bias="0.512" />
+
+    <Button
+        android:id="@+id/btnScan"
+        android:layout_width="132dp"
+        android:layout_height="57dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="52dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/colorAccent"
+        android:onClick="scan"
+        android:text="Scan barcode"
+        android:textAlignment="center"
+        android:textColor="#ffffff"
+        app:layout_constraintBottom_toTopOf="@+id/scan_format"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ISBNinput"
+        app:layout_constraintVertical_bias="0.512" />
+
+    <TextView
+        android:id="@+id/scan_format"
+        android:layout_width="255dp"
+        android:layout_height="83dp"
+        android:layout_marginBottom="12dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/scan_content"
+        tools:layout_editor_absoluteX="65dp" />
+
+    <TextView
+        android:id="@+id/scan_content"
+        android:layout_width="259dp"
+        android:layout_height="110dp"
+        android:layout_marginBottom="48dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="61dp" />
+
+    <TextView
+        android:id="@+id/txtInputMessage"
+        android:layout_width="371dp"
+        android:layout_height="25dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text=""
+        android:textColor="#ff0000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ISBNinput" />
+
+</android.support.constraint.ConstraintLayout>
