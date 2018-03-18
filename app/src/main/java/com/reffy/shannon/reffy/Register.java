@@ -77,7 +77,7 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
 
                 if (task.isSuccessful()) {
                     finish();
-                    startActivity(new Intent(Register.this, scanner.class));
+                    startActivity(new Intent(Register.this, MainActivity.class));
                 } else {
 
                     if (task.getException() instanceof FirebaseAuthUserCollisionException) {

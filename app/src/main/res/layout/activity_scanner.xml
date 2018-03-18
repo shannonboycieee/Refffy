@@ -15,7 +15,8 @@
         android:textAlignment="center"
         android:textSize="18sp"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="6dp" />
+        tools:layout_editor_absoluteX="6dp"
+        tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/ISBNinput"
@@ -43,7 +44,9 @@
         app:layout_constraintHorizontal_bias="0.825"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ISBNinput"
-        app:layout_constraintVertical_bias="0.512" />
+        app:layout_constraintVertical_bias="0.512"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="20dp" />
 
     <Button
         android:id="@+id/btnScan"
@@ -60,7 +63,8 @@
         app:layout_constraintBottom_toTopOf="@+id/scan_format"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ISBNinput"
-        app:layout_constraintVertical_bias="0.512" />
+        app:layout_constraintVertical_bias="0.512"
+        android:layout_marginRight="52dp" />
 
     <TextView
         android:id="@+id/scan_format"
@@ -92,5 +96,14 @@
         app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ISBNinput" />
+
+    <Button
+        android:id="@+id/logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Log out"
+        android:onClick="logout"
+        tools:layout_editor_absoluteX="291dp"
+        tools:layout_editor_absoluteY="456dp" />
 
 </android.support.constraint.ConstraintLayout>

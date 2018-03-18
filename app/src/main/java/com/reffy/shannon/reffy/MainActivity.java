@@ -17,7 +17,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-
+    //declaring variables
     EditText loginEmail, loginPassword;
     Button loginButton;
     Button signupButton;
@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         authentication = FirebaseAuth.getInstance();
 
+        //applying variable names to xml id's
         loginEmail = (EditText) findViewById(R.id.txtemail);
         loginPassword = (EditText) findViewById(R.id.txtpassword);
         loginButton = (Button) findViewById(R.id.btnLogin);
@@ -63,7 +64,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         if (password.length() < 6) {
-            loginPassword.setError("Minimum lenght of password should be 6");
+            loginPassword.setError("Your password should be 6 characters or more");
             loginPassword.requestFocus();
             return;
         }
@@ -74,9 +75,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 if (task.isSuccessful()) {
                     finish();
-                    Intent intent = new Intent(MainActivity.this, scanner.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    startActivity(intent);
+                    Intent login = new Intent(MainActivity.this, Home.class);
+                    login.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(login);
                 } else {
                     Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                 }
@@ -90,7 +91,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         if (authentication.getCurrentUser() != null) {
             finish();
-            startActivity(new Intent(this, scanner.class));
+            startActivity(new Intent(this, Home.class));
         }
     }
 
