@@ -3,13 +3,6 @@
 
     <string name="reference_prompt">Select a referencing style:</string>
 
-    <string-array name="reference_arrays">
-        <item>Harvard</item>
-        <item>IEEE</item>
-        <item>Chicago</item>
-        <item>MLA</item>
-
-    </string-array>
     <string name="title_activity_projects">projects</string>
     <string name="about_headline">About Reffy</string>
     <string name="about_text">Reffy is a mobile application that provides users with ease when wanting to reference a book. They can simply scan the books barcode that you wish to reference. Once scanned the application will retrieve the parts of the information needed to form your reference. Here you can edit the fields as you feel appropriate especially the date accessed if they day you are scanning on is not the day you are accessing it.</string>
@@ -26,4 +19,45 @@
 
     <string name="action_settings">Settings</string>
     <string name="title_activity_home">Home</string>
+    <string name="feedbackTitle">Please complete the form below to send your feedback</string>
+    <string name="feedbackName">Name</string>
+    <string name="feedbackEmail">Email</string>
+    <string name="feedbackRating">Rating</string>
+
+    <string-array name="feedbackrating">
+        <item>@string/rating1</item>
+        <item>@string/rating2</item>
+        <item>@string/rating3</item>
+        <item>@string/rating4</item>
+    </string-array>
+
+    <string name="rating1">Excellent</string>
+    <string name="rating2">Good</string>
+    <string name="rating3">Poor</string>
+    <string name="rating4">Very poor</string>
+
+
+    <string name="feedbackMessage">Message</string>
+    <string name="feedbackButton">Send Feedback</string>
+
+    <string name="emptyList">You do not have any projects at the minute. Click the plus sign at the bottom to get started.</string>
+
+
+    <string name="black">Black</string>
+
+    <string name="blue">Blue</string>
+
+    <string name="pick">Pick Your theme</string>
+
+    <string name="themeSelector">Please choose a theme</string>
+
+    <string-array name="theme_choices">
+        <item>Light</item>
+        <item>Dark</item>
+        <item>Bright</item>
+        <item>Red</item>
+        <item>Blue</item>
+    </string-array>
+
+
 </resources>

@@ -5,6 +5,7 @@ import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.annotation.NonNull;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -35,7 +36,7 @@ public class Home extends AppCompatActivity
     private Button scan_Button;
     private Button search_ISBN;
     private TextView txtformat, txtcontent;
-    private EditText mBookInput;
+    public static EditText isbnInput;
     private TextView mTitleText;
     private TextView mAuthorText;
     private FirebaseAuth authentication;
@@ -43,6 +44,7 @@ public class Home extends AppCompatActivity
     AssetManager assetManager;
     private ListView listView;
     private ItemArrayAdapter itemArrayAdapter;
+    public static String Result;
 
 
 
@@ -63,36 +65,24 @@ public class Home extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        scan_Button = (Button)findViewById(R.id.btnScan);
-        search_ISBN = (Button)findViewById(R.id.btnSearch);
-        txtformat = (TextView)findViewById(R.id.scan_format);
-        txtcontent = (TextView)findViewById(R.id.scan_content);
+        scan_Button = (Button) findViewById(R.id.btnScan);
+        search_ISBN = (Button) findViewById(R.id.btnSearch);
+        txtformat = (TextView) findViewById(R.id.scan_format);
+        txtcontent = (TextView) findViewById(R.id.scan_content);
+        listView = (ListView) findViewById(R.id.listView);
+
 
         // Initialize all the view variables.
-        mBookInput = (EditText)findViewById(R.id.ISBNinput);
-        mTitleText = (TextView)findViewById(R.id.txtInputMessage);
-        mAuthorText = (TextView)findViewById(R.id.scan_format);
+        isbnInput = (EditText) findViewById(R.id.ISBNinput);
 
-        authentication= FirebaseAuth.getInstance();
+
+        authentication = FirebaseAuth.getInstance();
         setupFireBaseListener();
 
-        listView = (ListView) findViewById(R.id.listView);
-        itemArrayAdapter = new ItemArrayAdapter(getApplicationContext(), R.layout.item_layout);
 
-        Parcelable state = listView.onSaveInstanceState();
-        listView.setAdapter(itemArrayAdapter);
-        listView.onRestoreInstanceState(state);
 
-        InputStream inputStream = getResources().openRawResource(R.raw.isbn_entries);
-        readFile csvFile = new readFile(inputStream);
-        List<String[]> scoreList = csvFile.read();
 
-        for(String[] scoreData:scoreList ) {
-            itemArrayAdapter.add(scoreData);
-        }
     }
-
-
 
     @Override
     public void onBackPressed() {
@@ -119,9 +109,9 @@ public class Home extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.about) {
-            Intent aboutintent = new Intent(this, about.class);
-            startActivity(aboutintent);
+        if (id == R.id.aboutUs) {
+            Intent aboutIntent = new Intent(this, about.class);
+            startActivity(aboutIntent);
         }
 
         return super.onOptionsItemSelected(item);
@@ -139,12 +129,19 @@ public class Home extends AppCompatActivity
         } else if (id == R.id.nav_projects) {
             Intent projectIntent = new Intent(this, projects.class);
             startActivity(projectIntent);
-        } else if (id == R.id.nav_settings) {
+        } else if (id == R.id.nav_accessibility) {
+
+            Intent accessibilityIntent = new Intent(this, accessability.class);
+            startActivity(accessibilityIntent);
+
 
         } else if (id == R.id.nav_help) {
+            Intent helpIntent = new Intent(this, Help.class);
+            startActivity(helpIntent);
 
         } else if (id == R.id.nav_feedback) {
-
+            Intent feedbackIntent = new Intent(this, feedback.class);
+            startActivity(feedbackIntent);
         }else if (id == R.id.nav_logout) {
             FirebaseAuth.getInstance().signOut();
         }
@@ -186,17 +183,31 @@ public class Home extends AppCompatActivity
         }
     }
 
-
+        //search isbn button click
         public void search(View v){
 
-        }
+            //storing user input
+            String Result = isbnInput.getText().toString();
 
-        public void searchDisplay(String value) {
+            //initiating item array adapter class
+            itemArrayAdapter = new ItemArrayAdapter(getApplicationContext(), R.layout.item_layout);
 
-            search_ISBN.setText(value);
-        }
+            Parcelable state = listView.onSaveInstanceState();
+            listView.setAdapter(itemArrayAdapter);
+            listView.onRestoreInstanceState(state);
 
+            InputStream inputStream = getResources().openRawResource(R.raw.isbn_entries);
 
+            //initiating readFile class
+            readFile csvFile = new readFile(inputStream);
+            List<String[]> detailsList = csvFile.read();
+
+            for (String[] Data : detailsList) {
+                 itemArrayAdapter.add(Data);
+                }
+            }
+
+        //When scan button is clicked
         public void scan(View v)
         {
             if(v.getId()==R.id.btnScan)
@@ -219,12 +230,13 @@ public class Home extends AppCompatActivity
             }
             else
             {
-                Toast toast = Toast.makeText(getApplicationContext(),"No scan data recieved.", Toast.LENGTH_SHORT);
+                Toast toast = Toast.makeText(getApplicationContext(),"No scan data received.", Toast.LENGTH_SHORT);
                 toast.show();
             }
         }
 
 
+        //logging out
         public void FirebaseListener(){
 
             authStateListener = new FirebaseAuth.AuthStateListener() {

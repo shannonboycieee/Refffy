@@ -17,15 +17,18 @@
             </intent-filter>
         </activity>
         <activity android:name=".Register" />
-        <activity android:name=".scanner" />
         <activity
             android:name=".Home"
-            android:parentActivityName=".Home"
             android:label="@string/title_activity_home"
+            android:parentActivityName=".Home"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".projects">
             android:parentActivityName=".Home"
         </activity>
+        <activity android:name=".Export" />
+        <activity android:name=".feedback" />
+        <activity android:name=".Help" />
+        <activity android:name=".accessability"></activity>
     </application>
 
 </manifest>
