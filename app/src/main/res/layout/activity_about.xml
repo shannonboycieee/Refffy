@@ -9,7 +9,9 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:showIn="@layout/activity_about">
+    tools:showIn="@layout/activity_about"
+    android:background="@color/colorPrimary"
+    >
 
        <ImageView
         android:id="@+id/imageView"
@@ -26,24 +28,28 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="12dp"
+        android:textColor="@color/icons"
         android:text="@string/about_headline"
-        android:textSize="24sp"
+        android:textSize="50sp"
+        android:fontFamily="cursive"
         android:textStyle="bold" />
 
     <ScrollView
-        android:id="@+id/scrollView2"
+        android:id="@+id/scroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
          android:layout_below="@+id/imageView"
         android:layout_marginTop="39dp">
 
         <TextView
-            android:id="@+id/longText"
+            android:id="@+id/aboutUs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/headline"
             android:layout_alignStart="@+id/headline"
-            android:layout_alignTop="@+id/scrollView2"
+            android:textSize="18sp"
+            android:textColor="@color/icons"
+            android:layout_alignTop="@+id/scroll"
             android:text="@string/about_text" />
     </ScrollView>
 

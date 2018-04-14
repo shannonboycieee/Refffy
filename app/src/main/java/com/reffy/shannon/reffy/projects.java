@@ -39,6 +39,7 @@ ListView project_list;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_projects);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Projects");
 
         //data is cached and available locally when the device loses internet connection.
         FirebaseDatabase.getInstance().setPersistenceEnabled(true);

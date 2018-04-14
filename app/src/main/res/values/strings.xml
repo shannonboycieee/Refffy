@@ -1,7 +1,11 @@
 <resources>
     <string name="app_name">Reffy</string>
+    <string name="welcome">Welcome</string>
 
-    <string name="reference_prompt">Select a referencing style:</string>
+    <string name="instructions">To search for a book enter the ISBN below and click search or click scan to scan the barcode</string>
+    <string name="search">Search</string>
+    <string name="scan">Scan barcode</string>
+    <string name="generate">Generate Reference</string>
 
     <string name="title_activity_projects">projects</string>
     <string name="about_headline">About Reffy</string>
@@ -11,8 +15,7 @@
     <string name="no_search_term">Please enter a search term</string>
     <string name="no_network">Please check your network connection and try again.</string>
     <string name="no_results">No Results Found</string>
-    <string name="title_activity_main2">Main2Activity</string>
-    <string name="title_activity_scanner2">scanner2</string>
+
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -42,6 +45,8 @@
 
     <string name="emptyList">You do not have any projects at the minute. Click the plus sign at the bottom to get started.</string>
 
+    <string name="largetext">Large font sizes</string>
+
 
     <string name="black">Black</string>
 
@@ -49,15 +54,11 @@
 
     <string name="pick">Pick Your theme</string>
 
-    <string name="themeSelector">Please choose a theme</string>
+    <string name="textfile">Export as text file</string>
+    <string name="expoemail">Export to email</string>
+    <string name="savetoProject">Save to project</string>
 
-    <string-array name="theme_choices">
-        <item>Light</item>
-        <item>Dark</item>
-        <item>Bright</item>
-        <item>Red</item>
-        <item>Blue</item>
-    </string-array>
-
+    <string name="help">Need help?</string>
+    <string name="helpSubtitle">Look no further this guide will help you step by step</string>
 
 </resources>

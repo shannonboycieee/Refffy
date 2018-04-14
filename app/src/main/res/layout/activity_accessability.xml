@@ -14,7 +14,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Large font sizes"
+        android:text="@string/largetext"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -42,85 +42,32 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.026" />
 
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="204dp"
-        android:layout_height="44dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="Change Background colour"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.099"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7"
-        app:layout_constraintVertical_bias="0.031" />
-
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="Change text colour"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.064"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8"
-        app:layout_constraintVertical_bias="0.052" />
-
-    <TextView
+       <TextView
 
         android:id="@+id/textView1"
-
         android:layout_width="wrap_content"
-
         android:layout_height="wrap_content"
-
         android:layout_alignParentTop="true"
-
         android:layout_centerHorizontal="true"
-
         android:layout_marginEnd="8dp"
-
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="@string/pick"
         android:textAppearance="?android:attr/textAppearanceLarge"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+        />
 
-    <Spinner
-        android:id="@+id/themeSpinner"
-        android:layout_width="match_parent"
-        android:layout_height="51dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="8dp"
-        android:entries="@array/theme_choices"
-        android:prompt="@string/themeSelector"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bluebutton"
-        tools:layout_editor_absoluteX="0dp" />
+
 
 
     <Button
 
         android:id="@+id/blackbutton"
-
         android:layout_width="fill_parent"
-
         android:layout_height="wrap_content"
-
         android:layout_alignParentLeft="true"
-
         android:layout_below="@+id/textView1"
-
         android:layout_marginBottom="8dp"
         android:layout_marginTop="8dp"
         android:text="@string/black"
@@ -133,15 +80,10 @@
     <Button
 
         android:id="@+id/bluebutton"
-
         android:layout_width="fill_parent"
-
         android:layout_height="wrap_content"
-
         android:layout_alignRight="@+id/blackbutton"
-
         android:layout_below="@+id/blackbutton"
-
         android:layout_marginBottom="8dp"
         android:layout_marginTop="364dp"
         android:text="@string/blue"

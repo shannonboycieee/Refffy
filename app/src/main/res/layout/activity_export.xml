@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.reffy.shannon.reffy.Export">
 
     <TextView
@@ -21,34 +22,35 @@
         app:layout_constraintVertical_bias="0.066" />
 
     <Button
-        android:id="@+id/tctProjSave"
+        android:id="@+id/btnProjSave"
         android:layout_width="246dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Save to project"
         android:background="@color/colorAccent"
+        android:text="@string/savetoProject"
         android:textColor="@color/icons"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btnEmailExport"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtGenRef"
-        app:layout_constraintVertical_bias="0.067" />
+        app:layout_constraintVertical_bias="0.369" />
 
     <Button
         android:id="@+id/btnEmailExport"
         android:layout_width="243dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="232dp"
+        android:layout_marginBottom="216dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:text="Export to email"
         android:background="@color/colorAccent"
+        android:text="@string/expoemail"
         android:textColor="@color/icons"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
@@ -59,12 +61,12 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Export as text file"
         android:background="@color/colorAccent"
+        android:text="@string/textfile"
         android:textColor="@color/icons"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnEmailExport"
-        app:layout_constraintVertical_bias="0.053" />
+        app:layout_constraintVertical_bias="0.22" />
 </android.support.constraint.ConstraintLayout>

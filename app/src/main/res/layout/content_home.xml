@@ -6,13 +6,14 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.reffy.shannon.reffy.Home"
-    tools:showIn="@layout/app_bar_home">
+    tools:showIn="@layout/app_bar_home"
+    android:orientation="vertical">
     <TextView
         android:id="@+id/instructions"
         android:layout_width="365dp"
         android:layout_height="83dp"
         android:layout_marginTop="16dp"
-        android:text="To search for a book enter the ISBN below and click search or click scan to scan the barcode"
+        android:text="@string/instructions"
         android:textAlignment="center"
         android:textSize="18sp"
         app:layout_constraintTop_toTopOf="parent"
@@ -30,70 +31,32 @@
         android:id="@+id/btnSearch"
         android:layout_width="132dp"
         android:layout_height="57dp"
-        android:layout_marginBottom="8dp"
         android:layout_marginEnd="20dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:background="@color/colorAccent"
         android:onClick="search"
-        android:text="Search"
+        android:text="@string/search"
         android:textAlignment="center"
-        android:textColor="#ffffff"
-        app:layout_constraintBottom_toTopOf="@+id/scan_format"
+        android:textColor="@color/icons"
         app:layout_constraintEnd_toStartOf="@+id/btnScan"
         app:layout_constraintHorizontal_bias="0.825"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ISBNinput"
-        app:layout_constraintVertical_bias="0.512" />
+        app:layout_constraintTop_toBottomOf="@+id/ISBNinput" />
 
     <Button
         android:id="@+id/btnScan"
         android:layout_width="132dp"
         android:layout_height="57dp"
-        android:layout_marginBottom="8dp"
         android:layout_marginEnd="52dp"
         android:layout_marginTop="8dp"
         android:background="@color/colorAccent"
         android:onClick="scan"
-        android:text="Scan barcode"
+        android:text="@string/scan"
         android:textAlignment="center"
-        android:textColor="#ffffff"
-        app:layout_constraintBottom_toTopOf="@+id/scan_format"
+        android:textColor="@color/icons"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ISBNinput"
-        app:layout_constraintVertical_bias="0.512" />
-
-    <TextView
-        android:id="@+id/scan_format"
-        android:layout_width="255dp"
-        android:layout_height="83dp"
-        android:layout_marginBottom="12dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/scan_content"
-        tools:layout_editor_absoluteX="65dp" />
-
-    <TextView
-        android:id="@+id/scan_content"
-        android:layout_width="259dp"
-        android:layout_height="110dp"
-        android:layout_marginBottom="48dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="61dp" />
-
-    <TextView
-        android:id="@+id/txtInputMessage"
-        android:layout_width="371dp"
-        android:layout_height="25dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:text=""
-        android:textColor="#ff0000"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.333"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ISBNinput" />
-
 
     <ListView
         android:id="@+id/listView"
@@ -109,14 +72,15 @@
         tools:layout_editor_absoluteX="0dp" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btnGenerate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Gernerate"
+        android:text="@string/generate"
+        android:onClick="GenerateRef"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.932"

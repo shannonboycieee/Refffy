@@ -33,6 +33,7 @@ import java.util.List;
 public class Home extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    //declaring variables
     private Button scan_Button;
     private Button search_ISBN;
     private TextView txtformat, txtcontent;
@@ -44,7 +45,7 @@ public class Home extends AppCompatActivity
     AssetManager assetManager;
     private ListView listView;
     private ItemArrayAdapter itemArrayAdapter;
-    public static String Result;
+    public static String searchIsbn;
 
 
 
@@ -123,26 +124,37 @@ public class Home extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
+        //initiates the scanner
         if (id == R.id.nav_scanner) {
             ScannerIntegrator scanIntegrator = new ScannerIntegrator(this);
             scanIntegrator.initiateScan();
-        } else if (id == R.id.nav_projects) {
+        }
+        //Open the project option on the nav drawer
+        else if (id == R.id.nav_projects) {
             Intent projectIntent = new Intent(this, projects.class);
             startActivity(projectIntent);
-        } else if (id == R.id.nav_accessibility) {
+        }
+        //Open the accessibility option on the nav drawer
+        else if (id == R.id.nav_accessibility) {
 
             Intent accessibilityIntent = new Intent(this, accessability.class);
             startActivity(accessibilityIntent);
 
 
-        } else if (id == R.id.nav_help) {
+        }
+        //Open the help option on the nav drawer
+        else if (id == R.id.nav_help) {
             Intent helpIntent = new Intent(this, Help.class);
             startActivity(helpIntent);
 
-        } else if (id == R.id.nav_feedback) {
+        }
+        //Open the feedback option on the nav drawer
+        else if (id == R.id.nav_feedback) {
             Intent feedbackIntent = new Intent(this, feedback.class);
             startActivity(feedbackIntent);
-        }else if (id == R.id.nav_logout) {
+        }
+        //Option for user to log out
+        else if (id == R.id.nav_logout) {
             FirebaseAuth.getInstance().signOut();
         }
 
@@ -151,6 +163,7 @@ public class Home extends AppCompatActivity
         return true;
     }
 
+    //Method to Log the user out
     private void setupFireBaseListener() {
         authStateListener = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -187,7 +200,7 @@ public class Home extends AppCompatActivity
         public void search(View v){
 
             //storing user input
-            String Result = isbnInput.getText().toString();
+            String searchIsbn = isbnInput.getText().toString();
 
             //initiating item array adapter class
             itemArrayAdapter = new ItemArrayAdapter(getApplicationContext(), R.layout.item_layout);
@@ -218,18 +231,19 @@ public class Home extends AppCompatActivity
 
         }
 
+        //Checking the scan data
         public void onActivityResult(int requestCode, int resultCode, Intent intent)
         {
             ScannerResult scanningResult = ScannerIntegrator.parseActivityResult(requestCode, resultCode, intent);
             if(scanningResult !=null)
             {
+                //place the scanned isbn into the isbn entry text box
                 String scanContent = scanningResult.getContents();
-                String scanFormat = scanningResult.getFormatName();
-                txtformat.setText("Format: " + scanFormat);
-                txtcontent.setText("Content: "+ scanContent);
+                isbnInput.setText(scanContent);
             }
             else
             {
+                //if scan was successful
                 Toast toast = Toast.makeText(getApplicationContext(),"No scan data received.", Toast.LENGTH_SHORT);
                 toast.show();
             }
@@ -246,6 +260,7 @@ public class Home extends AppCompatActivity
                     if (user != null){
 
                     }else {
+                        //informaing user they are signed out and are taken back to the login page
                         Toast.makeText(Home.this, "Signed out!", Toast.LENGTH_SHORT).show();
                         Intent loginpage = new Intent(Home.this, MainActivity.class);
                         startActivity(loginpage);
@@ -255,6 +270,9 @@ public class Home extends AppCompatActivity
         }
 
 
+    public void GenerateRef(View view) {
 
-
-       }
+        Intent generateRef = new Intent(this,Export.class);
+        startActivity(generateRef);
+    }
+}

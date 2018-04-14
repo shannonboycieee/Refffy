@@ -38,7 +38,7 @@ activity.startActivity(new Intent(activity, activity.getClass()));
 
         {
 
-            default: activity.setTheme(R.style.AppTheme);
+
 
             case BLACK:
 
@@ -51,7 +51,7 @@ activity.startActivity(new Intent(activity, activity.getClass()));
                 activity.setTheme(R.style.BlueTheme);
 
                 break;
-
+            default: activity.setTheme(R.style.AppTheme);
         }
 
     }
