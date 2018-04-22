@@ -47,10 +47,11 @@
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/headline"
             android:layout_alignStart="@+id/headline"
-            android:textSize="18sp"
-            android:textColor="@color/icons"
             android:layout_alignTop="@+id/scroll"
-            android:text="@string/about_text" />
+            android:text="@string/about_text"
+            android:textAlignment="center"
+            android:textColor="@color/icons"
+            android:textSize="18sp" />
     </ScrollView>
 
 </RelativeLayout>

@@ -69,7 +69,7 @@ public class feedback extends AppCompatActivity {
                 sendEmail.setType("plain/text");
                 sendEmail.putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{"shannonboyce036@hotmail.co.uk"});
                 sendEmail.putExtra(android.content.Intent.EXTRA_TEXT,
-                        "name:"+nameString+'\n'+"Email ID:"+emailString+'\n'+"Message:"+'\n'+messageString);
+                        "Name:"+nameString+'\n'+"Email:"+emailString+'\n'+"Message:"+'\n'+messageString);
 
             /* Send it off to the Activity-Chooser */
                 startActivity(Intent.createChooser(sendEmail, "Send mail..."));

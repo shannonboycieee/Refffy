@@ -59,6 +59,7 @@ public class accessability extends AppCompatActivity implements CompoundButton.O
             switch (view.getId())
 
             {
+                default: themeChange.changeToTheme(this, themeChange.AppTheme);
                 case R.id.blackbutton:
 
                     themeChange.changeToTheme(this, themeChange.BLACK);

@@ -57,8 +57,8 @@ public class ItemArrayAdapter extends ArrayAdapter<String[]> {
         }
         String[] isbn = getItem(position);
         viewHolder.title.setText(isbn[1]);
-        viewHolder.publicationDate.setText(isbn[2]);
-        viewHolder.publicationPlace.setText(isbn[3]);
+        viewHolder.publicationPlace.setText(isbn[2]);
+        viewHolder.publicationDate.setText(isbn[3]);
         viewHolder.edition.setText(isbn[4]);
         viewHolder.author.setText(isbn[5]);
 

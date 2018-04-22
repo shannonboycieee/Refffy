@@ -15,6 +15,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -36,6 +37,7 @@ public class Home extends AppCompatActivity
     //declaring variables
     private Button scan_Button;
     private Button search_ISBN;
+    Button btnGenerate;
     private TextView txtformat, txtcontent;
     public static EditText isbnInput;
     private TextView mTitleText;
@@ -55,7 +57,7 @@ public class Home extends AppCompatActivity
         setContentView(R.layout.activity_home);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -71,6 +73,7 @@ public class Home extends AppCompatActivity
         txtformat = (TextView) findViewById(R.id.scan_format);
         txtcontent = (TextView) findViewById(R.id.scan_content);
         listView = (ListView) findViewById(R.id.listView);
+        btnGenerate = (Button) findViewById(R.id.btnGenerate);
 
 
         // Initialize all the view variables.
@@ -202,6 +205,13 @@ public class Home extends AppCompatActivity
             //storing user input
             String searchIsbn = isbnInput.getText().toString();
 
+            if (searchIsbn.isEmpty()) {
+                isbnInput.setError("Please enter an ISBN");
+                isbnInput.requestFocus();
+                return;
+            }
+
+            else{
             //initiating item array adapter class
             itemArrayAdapter = new ItemArrayAdapter(getApplicationContext(), R.layout.item_layout);
 
@@ -218,7 +228,8 @@ public class Home extends AppCompatActivity
             for (String[] Data : detailsList) {
                  itemArrayAdapter.add(Data);
                 }
-            }
+            btnGenerate.setVisibility(View.VISIBLE);
+            }}
 
         //When scan button is clicked
         public void scan(View v)

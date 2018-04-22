@@ -28,24 +28,18 @@ public class readFile {
         List<String[]> resultList = new ArrayList<String[]>();
         BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
         try {
+            //declaring string
             String csvLine;
             while ((csvLine = reader.readLine()) != null) {
+                //array that holds the string seperated by commas
                 String[] isbnArray = csvLine.split(",");
+               // for (String search : isbnArray) {
+                //    if (Home.searchIsbn.equals(isbnArray)) {
 
-                for(String search:isbnArray){
-
-                     if (search.equals(isbnArray)){
-                         resultList.add(isbnArray);
-
-                }
-
-
-                }
-
-
-
-                }
-
+                        resultList.add(isbnArray);
+                    }
+               // }
+           // }
 
 
         }

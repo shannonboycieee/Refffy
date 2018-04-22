@@ -10,12 +10,9 @@ import android.content.Intent;
 public class themeChange {
 
     private static int Theme;
-
-
-
-    public final static int BLACK = 0;
-
-    public final static int BLUE = 1;
+    public final static int AppTheme =0;
+    public final static int BLACK = 1;
+    public final static int BLUE = 2;
 
     public static void changeToTheme(Activity activity, int theme)
 
@@ -38,8 +35,6 @@ activity.startActivity(new Intent(activity, activity.getClass()));
 
         {
 
-
-
             case BLACK:
 
                 activity.setTheme(R.style.BlackTheme);
@@ -51,7 +46,7 @@ activity.startActivity(new Intent(activity, activity.getClass()));
                 activity.setTheme(R.style.BlueTheme);
 
                 break;
-            default: activity.setTheme(R.style.AppTheme);
+
         }
 
     }
