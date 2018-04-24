@@ -184,20 +184,7 @@ public class Home extends AppCompatActivity
             }
         };
     }
-        @Override
-        protected void onStart(){
-        super.onStart();
-        FirebaseAuth.getInstance().addAuthStateListener(authStateListener);
-    }
 
-        @Override
-        protected void onStop() {
-        super.onStop();
-        if(authStateListener !=null)
-        {
-            FirebaseAuth.getInstance().removeAuthStateListener(authStateListener);
-        }
-    }
 
         //search isbn button click
         public void search(View v){
@@ -219,6 +206,7 @@ public class Home extends AppCompatActivity
             listView.setAdapter(itemArrayAdapter);
             listView.onRestoreInstanceState(state);
 
+            //declaring the inputstream as the ISBN entries csv file
             InputStream inputStream = getResources().openRawResource(R.raw.isbn_entries);
 
             //initiating readFile class
@@ -226,19 +214,19 @@ public class Home extends AppCompatActivity
             List<String[]> detailsList = csvFile.read();
 
             for (String[] Data : detailsList) {
+
                  itemArrayAdapter.add(Data);
+                 break;
                 }
             btnGenerate.setVisibility(View.VISIBLE);
             }}
 
-        //When scan button is clicked
+        //Called when scan button is clicked
         public void scan(View v)
         {
-            if(v.getId()==R.id.btnScan)
-            {
+                //start the scanner by calling the SannerIntegrator class and initiating the scanner
                 ScannerIntegrator scanIntegrator = new ScannerIntegrator(this);
                 scanIntegrator.initiateScan();
-            }
 
         }
 
@@ -248,13 +236,14 @@ public class Home extends AppCompatActivity
             ScannerResult scanningResult = ScannerIntegrator.parseActivityResult(requestCode, resultCode, intent);
             if(scanningResult !=null)
             {
-                //place the scanned isbn into the isbn entry text box
+               // Storing the scanned content as a string
                 String scanContent = scanningResult.getContents();
+                //place the string into the isbn entry EditText
                 isbnInput.setText(scanContent);
             }
             else
             {
-                //if scan was successful
+                //if scan was unsuccessful
                 Toast toast = Toast.makeText(getApplicationContext(),"No scan data received.", Toast.LENGTH_SHORT);
                 toast.show();
             }
@@ -270,7 +259,8 @@ public class Home extends AppCompatActivity
                     FirebaseUser user = firebaseAuth.getCurrentUser();
                     if (user != null){
 
-                    }else {
+                    }
+                    else {
                         //informaing user they are signed out and are taken back to the login page
                         Toast.makeText(Home.this, "Signed out!", Toast.LENGTH_SHORT).show();
                         Intent loginpage = new Intent(Home.this, MainActivity.class);
@@ -280,10 +270,26 @@ public class Home extends AppCompatActivity
             };
         }
 
-
+    //When the generate button is clicked this method is called
     public void GenerateRef(View view) {
 
+        //Export activity is started and displayed
         Intent generateRef = new Intent(this,Export.class);
         startActivity(generateRef);
+    }
+
+    @Override
+    protected void onStart(){
+        super.onStart();
+        FirebaseAuth.getInstance().addAuthStateListener(authStateListener);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if(authStateListener !=null)
+        {
+            FirebaseAuth.getInstance().removeAuthStateListener(authStateListener);
+        }
     }
 }

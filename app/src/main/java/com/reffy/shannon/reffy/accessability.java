@@ -15,7 +15,7 @@ import android.app.Activity;
 
 import static android.widget.TextView.*;
 
-public class accessability extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener, OnClickListener, AdapterView.OnItemSelectedListener {
+public class accessability extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener, OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,17 +26,22 @@ public class accessability extends AppCompatActivity implements CompoundButton.O
         getSupportActionBar().setTitle("Accessibility");
 
 
-
+        //declaring the switch
         Switch largeText = (Switch) findViewById(R.id.textSwitch);
+        //Sets the switch to off
         largeText.setChecked(false);
 
+        //sets oncheckedchanglistener to switch
         if (largeText != null) {
             largeText.setOnCheckedChangeListener(this);
         }
 
+        //setting on click listener's to buttons
         findViewById(R.id.blackbutton).setOnClickListener(this);
-
         findViewById(R.id.bluebutton).setOnClickListener(this);
+        findViewById(R.id.btnDefault).setOnClickListener(this);
+
+
 
             }
 
@@ -44,8 +49,10 @@ public class accessability extends AppCompatActivity implements CompoundButton.O
     public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
         Toast.makeText(this, "Large text is now " + (isChecked ? "on" : "off"),
                 Toast.LENGTH_SHORT).show();
+
+        //if the switch is turned on
         if(isChecked) {
-            //do stuff when Switch is ON
+
 
         } else {
             //do stuff when Switch if OFF
@@ -55,43 +62,33 @@ public class accessability extends AppCompatActivity implements CompoundButton.O
     @Override
     public void onClick(View view) {
 
-
+            //switch statement to identify which button was clicked and what to do
             switch (view.getId())
 
             {
                 default: themeChange.changeToTheme(this, themeChange.AppTheme);
+
+                //if the black button is clicked the theme is changed to the Black theme defined in styles
                 case R.id.blackbutton:
 
                     themeChange.changeToTheme(this, themeChange.BLACK);
 
                     break;
-
+                //if the blue button is clicked the theme is changed to the blue theme defined in styles
                 case R.id.bluebutton:
 
                     themeChange.changeToTheme(this, themeChange.BLUE);
 
                     break;
+
+                //if the default button is clicked the theme is changed to the App theme defined in styles
+                case R.id.btnDefault:
+
+                    themeChange.changeToTheme(this, themeChange.AppTheme);
+
+                    break;
             }
     }
 
-    @Override
-    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-        String selected = adapterView.getItemAtPosition(i).toString();
 
-        switch (i) {
-            case 0:
-                themeChange.changeToTheme(this, themeChange.BLUE);
-                break;
-
-            case 1:
-                themeChange.changeToTheme(this, themeChange.BLACK);
-        }
-
-
-    }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> adapterView) {
-
-    }
 }

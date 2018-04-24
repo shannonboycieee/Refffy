@@ -25,59 +25,71 @@
 
     <EditText
         android:id="@+id/feedbackName"
-        android:layout_width="fill_parent"
+        android:layout_width="354dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:hint="@string/feedbackName"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.178"
-        tools:layout_editor_absoluteX="0dp"></EditText>
+        app:layout_constraintVertical_bias="0.178"></EditText>
 
 
     <EditText
         android:id="@+id/feedbackEmail"
-        android:layout_width="fill_parent"
+        android:layout_width="355dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:hint="@string/feedbackEmail"
         android:inputType="textEmailAddress"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.338"
-        tools:layout_editor_absoluteX="16dp"></EditText>
+        app:layout_constraintVertical_bias="0.338"></EditText>
 
     <Spinner
         android:id="@+id/SpinnerFeedbackRating"
-        android:layout_width="fill_parent"
+        android:layout_width="363dp"
         android:layout_height="44dp"
         android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:entries="@array/feedbackrating"
         android:prompt="@string/feedbackRating"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.478"
-        tools:layout_editor_absoluteX="0dp"></Spinner>
+        app:layout_constraintVertical_bias="0.478"></Spinner>
 
     <EditText
         android:id="@+id/feedbackMessage"
-        android:layout_width="fill_parent"
+        android:layout_width="364dp"
         android:layout_height="128dp"
         android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:gravity="top"
         android:hint="@string/feedbackMessage"
         android:inputType="textMultiLine"
-        android:gravity="top"
-        android:padding="5dp"
         android:lines="5"
+        android:padding="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.743"
-        tools:layout_editor_absoluteX="0dp"></EditText>
+        app:layout_constraintVertical_bias="0.743"></EditText>
 
     <Button
         android:id="@+id/btnsendFeedback"
@@ -88,7 +100,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:elevation="4dp"
-        android:background="@color/colorAccent"
+        android:background="@drawable/button"
         android:text="@string/feedbackButton"
         android:textColor="@color/icons"
         app:layout_constraintBottom_toBottomOf="parent"

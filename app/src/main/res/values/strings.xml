@@ -5,7 +5,7 @@
     <string name="instructions">To search for a book enter the ISBN below and click search or click scan to scan the barcode</string>
     <string name="search">Search</string>
     <string name="scan">Scan barcode</string>
-    <string name="generate">Generate Reference</string>
+    <string name="generate">Generate</string>
 
     <string name="title_activity_projects">projects</string>
     <string name="about_headline">About Reffy</string>

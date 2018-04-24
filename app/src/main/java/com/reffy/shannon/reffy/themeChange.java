@@ -13,6 +13,7 @@ public class themeChange {
     public final static int AppTheme =0;
     public final static int BLACK = 1;
     public final static int BLUE = 2;
+    public final static int DEFAULT = 3;
 
     public static void changeToTheme(Activity activity, int theme)
 
@@ -43,7 +44,13 @@ activity.startActivity(new Intent(activity, activity.getClass()));
 
             case BLUE:
 
-                activity.setTheme(R.style.BlueTheme);
+            activity.setTheme(R.style.BlueTheme);
+
+            break;
+
+            case DEFAULT:
+
+                activity.setTheme(R.style.AppTheme);
 
                 break;
 

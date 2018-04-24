@@ -11,7 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ItemArrayAdapter extends ArrayAdapter<String[]> {
-	private List<String[]> detailsList = new ArrayList<String[]>();
+
+    private List<String[]> detailsList = new ArrayList<String[]>();
 
     static class ItemViewHolder {
         EditText title, publicationPlace,publicationDate,edition,author;
@@ -40,12 +41,11 @@ public class ItemArrayAdapter extends ArrayAdapter<String[]> {
     @Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		View row = convertView;
-        ItemViewHolder viewHolder;
+        ItemViewHolder viewHolder = new ItemViewHolder();
 		if (row == null) {
-			LayoutInflater inflater = (LayoutInflater) this.getContext().
-                    getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+			LayoutInflater inflater = (LayoutInflater) this.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 			row = inflater.inflate(R.layout.item_layout, parent, false);
-            viewHolder = new ItemViewHolder();
+
             viewHolder.title = (EditText) row.findViewById(R.id.title);
             viewHolder.publicationDate = (EditText) row.findViewById(R.id.publicationDate);
             viewHolder.publicationPlace = (EditText) row.findViewById(R.id.publicationPlace);
@@ -55,12 +55,13 @@ public class ItemArrayAdapter extends ArrayAdapter<String[]> {
 		} else {
             viewHolder = (ItemViewHolder)row.getTag();
         }
-        String[] isbn = getItem(position);
-        viewHolder.title.setText(isbn[1]);
-        viewHolder.publicationPlace.setText(isbn[2]);
-        viewHolder.publicationDate.setText(isbn[3]);
-        viewHolder.edition.setText(isbn[4]);
-        viewHolder.author.setText(isbn[5]);
+
+            String[] isbn = getItem(position);
+            viewHolder.title.setText(isbn[1]);
+            viewHolder.publicationPlace.setText(isbn[2]);
+            viewHolder.publicationDate.setText(isbn[3]);
+            viewHolder.edition.setText(isbn[4]);
+            viewHolder.author.setText(isbn[5]);
 
 		return row;
 	}

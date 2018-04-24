@@ -24,6 +24,8 @@ public class Export extends AppCompatActivity implements View.OnClickListener {
         findViewById(R.id.btnEmailExport).setOnClickListener(this);
         findViewById(R.id.btnTextExport).setOnClickListener(this);
 
+        //generatedReference.setText();
+
     }
 
     @Override
